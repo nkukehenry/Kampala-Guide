@@ -7,6 +7,7 @@ $year = $_REQUEST['year'];
 
 error_reporting(0);
 
+
  if($year=="allTime"){
   
   $stmt=$DB_con->prepare('SELECT DISTINCT YEAR(order_date) AS td1, ROUND(SUM(order_gross),2) AS td2, COUNT(order_id) AS td3, (SELECT ROUND(SUM(order_gross),2) FROM orders) AS total, (SELECT COUNT(order_id) FROM orders) AS sales FROM orders GROUP BY YEAR(order_date)');
